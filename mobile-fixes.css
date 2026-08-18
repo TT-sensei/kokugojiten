@@ -1,0 +1,6 @@
+@media(max-width:700px){
+  .topbar{padding:0 12px;gap:8px}.brand{min-width:0;font-size:17px}.brand-mark{width:32px;height:32px;font-size:20px;flex:0 0 auto}.top-status{font-size:11px;white-space:nowrap}
+  .screen-head{align-items:flex-start;flex-wrap:wrap;row-gap:6px}.screen-head>div:nth-child(2){order:3;width:100%}.screen-head h2{font-size:28px;line-height:1.2}.screen-head .back{font-size:14px}
+  .mission{font-size:21px;line-height:1.35}.dict-header{font-size:11px;gap:4px;padding:7px 6px}.dict-header b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dict-column{font-size:13px}.dict-word{font-size:23px}.dictionary{grid-template-columns:minmax(0,1fr) 40px;gap:6px}.dict-nail{font-size:12px;padding:6px 2px}.dict-nail span{width:27px;height:23px;font-size:13px}
+  .badge-card{padding:7px}.badge-card-title{font-size:13px;line-height:1.35;overflow-wrap:anywhere}.badge-card p{font-size:11px;line-height:1.35}.badge-intro{font-size:14px}.badge-intro span{font-size:18px}
+}
