@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#153b5b" />
+  <title>じしょマスター</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <button class="brand" data-action="home"><span class="brand-mark">辞</span><span>じしょマスター</span></button>
+      <div class="top-status"><span id="headerRank">見習い</span><span class="dot">・</span><span id="headerScore">0 XP</span></div>
+    </header>
+    <main id="screen" class="screen" aria-live="polite"></main>
+    <footer class="footer-nav">
+      <button data-action="home">ホーム</button><button data-action="records">きろく</button><button data-action="help">あそびかた</button>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
