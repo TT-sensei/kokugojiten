@@ -31,8 +31,8 @@ const levelPoolsData=[
   [['あさひ','いっぽ','うさぎ'],['かいだん','がっこう','きょうしつ'],['さくら','しゃしん','しゅくだい'],['たまご','だんご','ちょうちょ'],['にんじん','にゅうがく','ねんど'],['はんぶん','ぱんだ','ひこうき'],['ふうせん','ぶどう','プール'],['りんご','りゅう','ルビー']]
 ];
 const kanaOrder='ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわをんー'.split('');
-const kanaBase=c=>c.normalize('NFD').replace(/[\\u3099\\u309A]/g,'');
-const kanaVariant=c=>{const n=c.normalize('NFD');return n.includes('\\u309A')?2:n.includes('\\u3099')?1:0};
+const kanaBase=c=>{let n=c.normalize('NFD').replace(/[\u3099\u309A]/g,'');if(n>='\u30A1'&&n<='\u30F6')n=String.fromCharCode(n.charCodeAt(0)-0x60);return n};
+const kanaVariant=c=>{const n=c.normalize('NFD');return n.includes('\u309A')?2:n.includes('\u3099')?1:0};
 const dictionaryCompare=(a,b)=>{const aa=[...a].map(c=>kanaOrder.indexOf(kanaBase(c))),bb=[...b].map(c=>kanaOrder.indexOf(kanaBase(c)));for(let i=0;i<Math.min(aa.length,bb.length);i++){if(aa[i]!==bb[i])return aa[i]-bb[i]}if(aa.length!==bb.length)return aa.length-bb.length;for(let i=0;i<aa.length;i++){const d=kanaVariant([...a][i])-kanaVariant([...b][i]);if(d)return d}return 0};
 function newWords(){const level=Math.min(10,Math.max(1,state.level||1));const pool=levelPoolsData[level-1]||levelPoolsData[0];const source=pool[Math.floor(Math.random()*pool.length)];state.words=[...source].sort(()=>Math.random()-.5);state.selected=null}
 function words(){state.mode='words';state.level=Number(store.wordLevel||1);state.challenge=false;newWords();renderWords()}
